@@ -6,9 +6,8 @@
   "scripts": {
     "test": "jest",
     "dev": "nodemon",
-    "clean": "rm -rf dist && mkdir dist",
-    "dist": "yarn clean && tsc",
-    "start": "yarn dist && node dist/app.js"
+    "start": "node dist/app.js",
+    "postinstall": "tsc"
   },
   "keywords": [],
   "author": "",
