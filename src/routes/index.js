@@ -1,7 +1,7 @@
-import usdRoute from './usd/usdRoute';
+import changeRoute from './change/changeRoute';
 
 const apiRoutes = async (app) => {
-  app.register(usdRoute);
+  app.register(changeRoute);
 };
 
 module.exports = apiRoutes;

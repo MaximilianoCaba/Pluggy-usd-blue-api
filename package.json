@@ -6,17 +6,21 @@
   "scripts": {
     "test": "jest",
     "dev": "nodemon",
-    "start": "node dist/app.js",
-    "postinstall": "tsc"
+    "clean": "rm -rf dist && mkdir dist",
+    "dist": "yarn clean && tsc",
+    "start": "node dist/app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.1",
     "cache-manager": "^3.4.1",
-    "connect": "^3.7.0",
+    "cheerio": "^1.0.0-rc.5",
+    "dotenv": "^8.2.0",
     "fastify": "^3.14.0",
-    "fastify-swagger": "^4.4.2"
+    "node-cron": "^3.0.0",
+    "puppeteer": "^8.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.13",
@@ -39,9 +43,6 @@
   },
   "jest": {
     "testEnvironment": "node",
-    "setupFilesAfterEnv": [
-      "./test/setup.js"
-    ],
     "modulePathIgnorePatterns": [
       "./dist"
     ]
