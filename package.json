@@ -8,7 +8,7 @@
     "dev": "nodemon",
     "clean": "rm -rf dist && mkdir dist",
     "dist": "yarn clean && tsc",
-    "start": "nodemon"
+    "start": "node dist/app.js"
   },
   "keywords": [],
   "author": "",
