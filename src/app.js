@@ -6,7 +6,7 @@ import './cron';
 dotenv.config();
 
 const start = async () => {
-    const server = fastify();
+    const server = fastify({logger: true});
     try {
         server.register(apiRoutes);
         await server.listen(3004);
