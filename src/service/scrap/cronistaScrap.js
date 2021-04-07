@@ -1,9 +1,9 @@
 import axios from "axios";
 import cheerio from 'cheerio';
 
-
 const getDollarBlue = async () => {
   const url = process.env.URL_CRONISTA;
+  console.log(`[cronicaScrap.getDollarBlue] get price with ${url}`);
   const pageContent = await axios.get(url);
   const $ = cheerio.load(pageContent.data);
 
@@ -19,6 +19,7 @@ const getDollarBlue = async () => {
     response.buy_price = +parseFloat(buy_price.replace('$', '').replace(',', '.')).toFixed(2);
     response.sell_price = +parseFloat(sell_price.replace('$', '').replace(',', '.')).toFixed(2);
   }).get();
+  console.log(`[cronicaScrap.getDollarBlue] return with ${JSON.stringify(response)}`);
   return response;
 }
 

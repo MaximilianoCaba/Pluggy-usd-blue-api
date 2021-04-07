@@ -8,5 +8,4 @@ const changeRoute = async (app) => {
   app.get('/api/slippage', { handler: changeController.getSlippage });
 };
 
-
 module.exports = changeRoute;

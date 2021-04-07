@@ -1,6 +1,7 @@
 import puppeteer from "puppeteer";
 
 const getHtml = async (url) => {
+  console.log(`[puppeteerRepository.getHtml] get html with ${url}`);
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.goto(url, {
@@ -8,6 +9,7 @@ const getHtml = async (url) => {
   });
   let bodyHTML = await page.evaluate(() => document.body.innerHTML);
   await browser.close();
+  console.log(`[puppeteerRepository.getHtml] return html`);
   return bodyHTML;
 }
 

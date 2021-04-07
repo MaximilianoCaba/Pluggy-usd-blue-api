@@ -3,6 +3,7 @@ import puppeteerRepository from '../../repository/puppeteerRepository'
 
 const getDollarBlue = async () => {
   const url = process.env.URL_AMBITO;
+  console.log(`[ambitoScrap.getDollarBlue] get price with ${url}`);
   let response = {
     source: url,
     name: 'AMBITO'
@@ -19,6 +20,7 @@ const getDollarBlue = async () => {
     response.buy_price = +parseFloat(buy_price.replace(',', '.')).toFixed(2);
     response.sell_price = +parseFloat(sell_price.replace(',', '.')).toFixed(2);
   }).get();
+  console.log(`[ambitoScrap.getDollarBlue] return with ${JSON.stringify(response)}`);
   return response;
 }
 
