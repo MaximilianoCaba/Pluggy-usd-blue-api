@@ -1,6 +1,6 @@
 import puppeteer from "puppeteer";
 
-const getHtml = async (url) => {
+const getHtml = async (url: string) : Promise<string> => {
   console.log(`[puppeteerRepository.getHtml] get html with ${url}`);
   const browser = await puppeteer.launch();
   const page = await browser.newPage();

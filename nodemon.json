@@ -3,5 +3,5 @@
     "src"
   ],
   "ext": "ts,json,js",
-  "exec": "ts-node ./src/app.js"
+  "exec": "ts-node ./src/app.ts"
 }

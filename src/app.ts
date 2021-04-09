@@ -1,17 +1,18 @@
-import apiRoutes from './routes';
-import fastify from 'fastify';
+import Fastify, {FastifyInstance} from 'fastify';
 import * as dotenv from 'dotenv';
 import './cron';
 import cors from 'fastify-cors'
+import {Server, IncomingMessage, ServerResponse} from "http";
+import {changeRoutes} from "./routes/changeRoute";
 
-const start = async () => {
-    const server = fastify();
+const start = async (): Promise<void> => {
+    const server: FastifyInstance<Server, IncomingMessage, ServerResponse> = Fastify();
     try {
         server.register(cors, {
             origin: "*",
             methods: ["GET"]
         });
-        server.register(apiRoutes);
+        server.register(changeRoutes);
         const port = process.env.PORT || 3004;
         await server.listen(port);
         console.log('Server start in port: ' + port);
@@ -22,5 +23,5 @@ const start = async () => {
 };
 
 dotenv.config();
-start();
+start().then(() => console.log('The server started'));
 

@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    "strict": true,
+    "strictFunctionTypes": false,
+    "strictPropertyInitialization": false,
     "module": "commonjs",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -11,8 +14,9 @@
     "allowJs": true,
     "target": "ES6",
     "lib": [
-      "ES6"
-    ],
+      "ES6",
+      "dom"
+    ]
   },
   "include": [
     "src/**/*"
